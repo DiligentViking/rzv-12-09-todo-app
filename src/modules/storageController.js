@@ -20,14 +20,14 @@ const StorageController = (()=>{
             const currentProject = ProjectController.getProjects()[index];
 
             tasks.forEach((task,index2) => {
-                   
-                  currentProject.addTask(task.title,task.description,task.dueDate,task.priority);  
-                  if(task.completed){
-                    currentProject.getTaskList()[index2].toggle();
-                  }
+
+            currentProject.addTask(task.title,task.description,task.dueDate,task.priority);  
+            if(task.completed){
+                currentProject.getTaskList()[index2].toggle();
+            }
 
             });{
-             
+
             }
         });
     }

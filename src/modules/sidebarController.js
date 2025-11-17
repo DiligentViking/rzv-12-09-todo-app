@@ -8,7 +8,7 @@ const SidebarController = (() => {
     let selectedProject = null;
 
     const render = () => {
-      
+
         sidebar.textContent = "";
         const previousSelectedId = selectedProject ? selectedProject.dataset.id : null;
 

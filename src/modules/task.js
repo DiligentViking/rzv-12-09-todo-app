@@ -9,7 +9,7 @@ export default class Task {
     }
 
     toggle(){
-       this.completed = !this.completed;
+        this.completed = !this.completed;
     }
 
     getCompleted(){

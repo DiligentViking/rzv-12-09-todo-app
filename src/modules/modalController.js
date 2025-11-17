@@ -6,7 +6,7 @@ import StorageController from "./storageController";
 const ModalController = (()=>{
     const dialog = document.createElement("dialog");
     document.querySelector("body").appendChild(dialog);
-  
+
     const handleNewProject = ()=>{
         dialog.innerHTML = ``;
 
@@ -89,7 +89,7 @@ const ModalController = (()=>{
 
             if (project.name === 'Inbox') {
                 option.selected = true;
-              }
+            }
 
             select.appendChild(option);
         }
@@ -126,7 +126,7 @@ const ModalController = (()=>{
         selectPriority.appendChild(option1);
         selectPriority.appendChild(option2);
         selectPriority.appendChild(option3);
- 
+
 
         priorityComboBox.appendChild(selectPriority);
 
