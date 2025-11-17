@@ -55,8 +55,8 @@ const SidebarController = (() => {
 
             projectItem.appendChild(projectButton)
             const delBtn = document.createElement("button");
-            delBtn.textContent="🗑"
             delBtn.classList.add("project-delete-btn")
+            delBtn.appendChild(document.createElement('span'));
             delBtn.dataset.id = project.getId();
 
             delBtn.addEventListener("click",()=>{

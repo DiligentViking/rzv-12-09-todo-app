@@ -141,17 +141,30 @@ body {
 }
 
 .project-delete-btn {
-    background: transparent;
+    background-color: transparent;
     border: none;
-    color: #ff5555;
     font-size: 0.7rem;
     cursor: pointer;
-    transition: transform 0.2s ease, color 0.2s ease;
+    transition: transform 0.2s ease;
   }
-  
+
   .project-delete-btn:hover {
     background-color: #88888831 !important;
     transform: scale(1.1);
+  }
+
+  .project-delete-btn > span {
+    -webkit-mask: url('./assets/images/trash-alt-svgrepo-com.svg') no-repeat center / contain;
+    mask: url('./assets/images/trash-alt-svgrepo-com.svg') no-repeat center / contain;
+    background-color: currentColor;
+    color: #ff5555;
+    display: block;
+    width: 0.75rem;
+    height: 0.75rem;
+    transition: color 0.2s ease;
+  }
+
+  .project-delete-btn:hover > span {
     color: #ff0000;
   }
 
