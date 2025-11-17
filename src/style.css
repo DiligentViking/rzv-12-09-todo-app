@@ -205,6 +205,21 @@ dialog {
   dialog::backdrop {
     background-color: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(3px);
+    opacity: 0;
+    transition: opacity 0.2s ease-out;
+  }
+
+  dialog.open {
+    animation: fadeIn 0.2s ease-out;
+  }
+  dialog.open::backdrop {
+    opacity: 1;
+  }
+  dialog.cancel {
+    animation: fadeOut 0.2s ease-out;
+  }
+  dialog.cancel::backdrop {
+    opacity: 0;
   }
   
 
@@ -222,7 +237,6 @@ dialog {
     font-family: sans-serif;
     font-size: 0.9rem;
     box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
-    animation: fadeIn 0.2s ease-out;
   }
   
   .new-project div:first-child {
@@ -293,6 +307,17 @@ dialog {
     to {
       opacity: 1;
       transform: scale(1);
+    }
+  }
+
+  @keyframes fadeOut {
+    from {
+      opacity: 1;
+      transform: scale(1);
+    }
+    to {
+      opacity: 0;
+      transform: scale(0.95);
     }
   }
   

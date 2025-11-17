@@ -7,6 +7,28 @@ const ModalController = (()=>{
     const dialog = document.createElement("dialog");
     document.querySelector("body").appendChild(dialog);
 
+    // Private Funcs //
+    const openModal = ()=>{
+        dialog.showModal();
+        dialog.classList.add('open');
+        dialog.classList.remove('cancel');
+    }
+
+    const cancelModal = ()=>{
+        dialog.classList.add('cancel');
+        dialog.classList.remove('open');
+        dialog.addEventListener('transitionend', function handler() {
+            dialog.close();
+            dialog.removeEventListener('transitionend', handler);
+        });
+    }
+
+    const closeModal = ()=>{
+        dialog.classList.remove('open');
+        dialog.close();
+    }
+    // ----- //
+
     const handleNewProject = ()=>{
         dialog.innerHTML = ``;
 
@@ -23,7 +45,7 @@ const ModalController = (()=>{
         const cancelBtn = document.createElement("button");
         cancelBtn.textContent = "Cancel";
         cancelBtn.addEventListener("click",()=>{
-            dialog.close();
+            cancelModal();
         
         })
 
@@ -39,7 +61,7 @@ const ModalController = (()=>{
 
         dialog.appendChild(dialogDiv);
         
-        dialog.showModal();
+        openModal();
 
         okBtn.addEventListener("click", ()=>{
             if (!input.checkValidity()) {
@@ -47,7 +69,7 @@ const ModalController = (()=>{
                 return;
             }
             ProjectController.addProject(input.value);
-            dialog.close();
+            closeModal();
             StorageController.storeProjects();
             SidebarController.render();
         })
@@ -98,7 +120,7 @@ const ModalController = (()=>{
         const cancelBtn = document.createElement("button");
         cancelBtn.textContent = "Cancel";
         cancelBtn.addEventListener("click",()=>{
-            dialog.close();
+            cancelModal();
         
         })
 
@@ -147,7 +169,7 @@ const ModalController = (()=>{
 
             if(projectId === ContentController.getActiveProject().getId())
                 ContentController.renderProjectTasks(projectObj);
-            dialog.close();
+            closeModal();
             StorageController.storeProjects();
         })
 
@@ -165,7 +187,7 @@ const ModalController = (()=>{
 
         dialog.appendChild(dialogDiv);
 
-        dialog.showModal();
+        openModal();
     }
 
     return {
