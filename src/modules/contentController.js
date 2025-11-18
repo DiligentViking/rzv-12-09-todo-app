@@ -28,7 +28,15 @@ const ContentController = (() => {
                 const desc = document.createElement("div");
                 const dueDate = document.createElement("div");
 
-                title.textContent = taskObj.getTitle();
+                const duration = document.createElement("span");
+                const durationValue = taskObj.getDuration();
+                duration.textContent =
+                    (durationValue === "short") ? " (short!)" :
+                    (durationValue === "normal") ? "" :
+                    (durationValue === "long") ? " (very long)" :
+                    " [error]";
+
+                title.append(taskObj.getTitle(), duration);
                 desc.textContent = taskObj.getDesc();
                 dueDate.textContent = taskObj.getDueDate();
 

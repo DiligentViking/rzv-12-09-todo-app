@@ -353,6 +353,10 @@ dialog {
   font-size: 0.95rem;
   color: #fff;
 }
+  .task-item > div:nth-child(1) > span {
+    font-size: 0.75rem;
+    color: purple;
+  }
 
 .task-item > div:nth-child(2) {
   grid-column: 1 / 2;
