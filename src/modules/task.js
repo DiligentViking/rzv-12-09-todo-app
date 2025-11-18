@@ -1,10 +1,11 @@
 export default class Task {
-    constructor(title,description,dueDate,priority){
+    constructor(title,description,dueDate,priority,duration){
         this.id = crypto.randomUUID();
         this.title = title;
         this.description = description;
         this.dueDate = dueDate;
         this.priority = priority;
+        this.duration = duration;
         this.completed = false;
     }
 
@@ -36,6 +37,10 @@ export default class Task {
         return this.priority;
     }
 
+    getDuration(){
+        return this.duration;
+    }
+
     setTitle(title){
         this.title = title;
     }
@@ -50,6 +55,10 @@ export default class Task {
 
     setPriority(priority){
         this.priority = priority;
+    }
+
+    setDuration(duration){
+        this.duration = duration;
     }
 }
 

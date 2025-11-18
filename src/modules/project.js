@@ -7,8 +7,8 @@ export default class Project {
         this.taskList = [];
     }
 
-    addTask(title,description,dueDate,priority){
-        const task = new Task(title,description,dueDate,priority);
+    addTask(title,description,dueDate,priority,duration){
+        const task = new Task(title,description,dueDate,priority,duration);
         this.taskList.push(task);
     }
 

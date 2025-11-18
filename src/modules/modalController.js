@@ -124,6 +124,36 @@ const ModalController = (()=>{
         
         })
 
+        // Duration //
+        const durationComboBox = document.createElement("div");
+        const labelDuration = document.createElement("label");
+        labelDuration.for = "duration-select";
+        durationComboBox.appendChild(labelDuration);
+        const selectDuration = document.createElement("select");
+        selectDuration.name = "duration";
+        selectDuration.id = "duration-select";
+        const option1Duration = document.createElement("option");
+        option1Duration.textContent = "short!";
+        option1Duration.value = "short";
+
+        const option2Duration = document.createElement("option");
+        option2Duration.textContent = "normal";
+        option2Duration.value = "normal";
+        option2Duration.selected = true;
+
+        const option3Duration = document.createElement("option");
+        option3Duration.textContent = "very long";
+        option3Duration.value = "long";
+
+
+        selectDuration.appendChild(option1Duration);
+        selectDuration.appendChild(option2Duration);
+        selectDuration.appendChild(option3Duration);
+
+
+        durationComboBox.appendChild(selectDuration);
+        // ----- //
+
         const priorityComboBox = document.createElement("div");
         const labelPriority = document.createElement("label");
         labelPriority.for = "priority-select";
@@ -131,23 +161,23 @@ const ModalController = (()=>{
         const selectPriority = document.createElement("select");
         selectPriority.name = "priority";
         selectPriority.id = "priority-select";
-        const option1 = document.createElement("option");
-        option1.textContent = "Priority High"
-        option1.value = "high";
+        const option1Priority = document.createElement("option");
+        option1Priority.textContent = "Priority High"
+        option1Priority.value = "high";
 
-        const option2 = document.createElement("option");
-        option2.textContent = "Priority Medium"
-        option2.value = "medium";
+        const option2Priority = document.createElement("option");
+        option2Priority.textContent = "Priority Medium"
+        option2Priority.value = "medium";
 
-        const option3 = document.createElement("option");
-        option3.textContent = "Prioriy Low"
-        option3.value = "low";
-        option3.selected = true;
+        const option3Priority = document.createElement("option");
+        option3Priority.textContent = "Prioriy Low"
+        option3Priority.value = "low";
+        option3Priority.selected = true;
 
 
-        selectPriority.appendChild(option1);
-        selectPriority.appendChild(option2);
-        selectPriority.appendChild(option3);
+        selectPriority.appendChild(option1Priority);
+        selectPriority.appendChild(option2Priority);
+        selectPriority.appendChild(option3Priority);
 
 
         priorityComboBox.appendChild(selectPriority);
@@ -165,7 +195,8 @@ const ModalController = (()=>{
             const dueDate = dueDateInput.value;
             const projectObj = ProjectController.findProjectById(projectId);
             const priority = selectPriority.value;
-            projectObj.addTask(name,desc,dueDate,priority);
+            const duration = selectDuration.value;
+            projectObj.addTask(name,desc,dueDate,priority,duration);
 
             if(projectId === ContentController.getActiveProject().getId())
                 ContentController.renderProjectTasks(projectObj);
@@ -182,6 +213,7 @@ const ModalController = (()=>{
         dialogDiv.appendChild(descriptionInput);
         dialogDiv.appendChild(dueDateInput);
         dialogDiv.appendChild(projectComboBox);
+        dialogDiv.appendChild(durationComboBox);
         dialogDiv.appendChild(priorityComboBox);
         dialogDiv.appendChild(actionsDiv);
 
