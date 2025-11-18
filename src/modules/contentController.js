@@ -122,8 +122,18 @@ const ContentController = (() => {
         option3Duration.textContent = "very long";
         option3Duration.value = "long";
 
-        selectDuration.value = selectedTask.getDuration();
         console.log({duration: selectedTask.getDuration()});
+        switch (selectedTask.getDuration()) {
+            case "short":
+                option1Duration.selected = true;
+                break;
+            case "normal":
+                option2Duration.selected = true;
+                break;
+            case "long":
+                option3Duration.selected = true;
+                break;
+        }
 
         selectDuration.appendChild(option1Duration);
         selectDuration.appendChild(option2Duration);
@@ -151,8 +161,18 @@ const ContentController = (() => {
         option3Priority.textContent = "Priority High"
         option3Priority.value = "high";
 
-        selectPriority.value = selectedTask.getPriority()
         console.log({priority: selectedTask.getPriority()});
+        switch (selectedTask.getPriority()) {
+            case "low":
+                option1Priority.selected = true;
+                break;
+            case "medium":
+                option2Priority.selected = true;
+                break;
+            case "high":
+                option3Priority.selected = true;
+                break;
+        }
 
         selectPriority.appendChild(option1Priority);
         selectPriority.appendChild(option2Priority);

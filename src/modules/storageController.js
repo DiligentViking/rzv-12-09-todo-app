@@ -21,7 +21,7 @@ const StorageController = (()=>{
 
             tasks.forEach((task,index2) => {
 
-            currentProject.addTask(task.title,task.description,task.dueDate,task.priority);  
+            currentProject.addTask(task.title,task.description,task.dueDate,task.priority,task.duration);  
             if(task.completed){
                 currentProject.getTaskList()[index2].toggle();
             }
